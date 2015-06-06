@@ -7,9 +7,9 @@
 
 <script>
   // var host = location.origin.replace(/^http/, 'ws')
-  var host = "ws://check-out.herokuapp.com/"
-  var wss = new WebSocket(host);
-	wss.onopen = function() {
+  var host = "wss://check-out.herokuapp.com/"
+  var ws = new WebSocket(host);
+	ws.onopen = function() {
 		 console.log("websocket connection open")
 	}
 	
@@ -18,7 +18,7 @@
         type: 'add',
         body: "test"
       });
-      wss.send(data);
+      ws.send(data);
       console.log(data)
    }
 	

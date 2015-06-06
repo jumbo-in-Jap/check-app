@@ -17,7 +17,7 @@ console.log("websocket server created")
 wss.on("connection", function(ws) {
   
   // 受信部
-  wss.on('message', function(data){
+  ws.on('message', function(data){
   	console.log("get massage");
   	console.log(data)
   })
