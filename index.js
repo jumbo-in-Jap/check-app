@@ -15,6 +15,13 @@ var wss = new WebSocketServer({server: server})
 console.log("websocket server created")
 
 wss.on("connection", function(ws) {
+  
+  // 受信部
+  wss.on('message', function(data){
+  var data = JSON.parse(data);
+	  	ws.send(data);
+  })
+	
   var id = setInterval(function() {
     ws.send(JSON.stringify(new Date()), function() {  })
   }, 1000)
