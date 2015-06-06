@@ -16,7 +16,6 @@ var connections = [];
 
 wss.on("connection", function(ws) {
 	console.log("websocket connection open")
-	console.log(ws)
 	connections.push(ws);
 	  // 受信部
 	  ws.on('message', function(data){
@@ -30,10 +29,11 @@ wss.on("connection", function(ws) {
 	        return (conn === ws) ? false : true;
 	    });
 	    console.log("websocket connection close")
-	    clearInterval(id)
-	  });
+ 	  });
 })
 
+// 基本メッセージが全員に送る
+// クライアント時で自分用か判断する
 function broadcast(message) {
     connections.forEach(function (con, i) {
         con.send(message);
