@@ -17,6 +17,7 @@ var connections = [];
 wss.on("connection", function(ws) {
 	console.log("websocket connection open")
 	connections.push(ws);
+	
 	  // 受信部
 	  ws.on('message', function(data){
 	  	console.log("get massage");
