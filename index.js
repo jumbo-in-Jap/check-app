@@ -16,18 +16,14 @@ var connections = [];
 
 wss.on("connection", function(ws) {
 	console.log("websocket connection open")
+	console.log(ws)
 	connections.push(ws);
 	  // 受信部
 	  ws.on('message', function(data){
 	  	console.log("get massage");
 	  	console.log(data)
 		broadcast(data)
-	  })
-		
-	  // var id = setInterval(function() {
-	    // ws.send(JSON.stringify(new Date()), function() {  })
-	  // }, 1000)
-	
+	  })	
 	
 	  ws.on('close', function () {
 	    connections = connections.filter(function (conn, i) {
