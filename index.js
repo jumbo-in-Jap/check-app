@@ -20,7 +20,7 @@ wss.on("connection", function(ws) {
   ws.on('message', function(data){
   	console.log("get massage");
   	console.log(data)
-    ws.send((data)
+    ws.send(data)
   })
 	
   var id = setInterval(function() {
