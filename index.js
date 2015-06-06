@@ -40,8 +40,6 @@ wss.on("connection", function(ws) {
 
 function broadcast(message) {
     connections.forEach(function (con, i) {
-    	console.log(con)
-    	console.log(i)
         con.send(message);
     });
 };
